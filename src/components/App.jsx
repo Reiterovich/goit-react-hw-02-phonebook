@@ -1,16 +1,21 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      Hello world
-    </div>
-  );
-};
+import { Component } from 'react';
+import { Form } from './Form/Form';
+
+export class App extends Component {
+  state = {
+    contacts: [],
+    name: '',
+  };
+
+  conactList = contactData => {
+    console.log(contactData);
+  };
+
+  render() {
+    return (
+      <>
+        <Form conactList={this.conactList} />
+      </>
+    );
+  }
+}
