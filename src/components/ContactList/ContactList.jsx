@@ -1,11 +1,12 @@
 export const ContactList = data => {
-  console.log(data);
+  const contArr = data.data;
+  // console.log(data.data);
   return (
     <div>
       <ul>
-        {/* {data.map(dat => (
-          <li key={dat.id}></li>
-        ))} */}
+        {contArr.map(con => (
+          <li key={con.id}>{con.name}</li>
+        ))}
       </ul>
     </div>
   );
