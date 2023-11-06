@@ -9,7 +9,7 @@ export const ContactList = (data, filter) => {
       <p>dd</p>
       <ul>
         {contArr
-          .filter(fil => fil.name === 'filter')
+          .filter(fil => fil.name === filter)
           .map(con => (
             <li key={con.id}>
               {con.name}: {con.number}
