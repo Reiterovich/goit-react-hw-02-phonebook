@@ -1,22 +1,22 @@
 import { Component } from 'react';
 
+// export const ContactList = ({ data, filter }) => {
+
 export class Filter extends Component {
-  state = {
-    filter: '',
-  };
+  // state = {
+  //   filter: '',
+  // };
 
   handleInputChange = evt => {
-    const name = evt.target.name;
+    // const name = evt.target.name;
     const value = evt.target.value;
+    // const filter = this.state.filter;
     // console.log(evt.target.value);
-    this.setState({
-      [name]: value,
-    });
-
-    const filter = this.state.filter;
-
+    // this.setState({
+    //   filter: value,
+    // });
     // console.log(filterApp);
-    this.props.filterName(filter);
+    this.props.filterName(value);
   };
 
   render() {
@@ -25,7 +25,7 @@ export class Filter extends Component {
         <p>Find contacts by neme</p>
         <input
           name="filter"
-          value={this.state.filter}
+          value={this.props.filter}
           type="text"
           onChange={this.handleInputChange}
         />

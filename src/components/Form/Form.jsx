@@ -20,7 +20,14 @@ export class Form extends Component {
       id: id,
     };
 
+    // this.props.inClud(contact);
+
     this.props.conactList(contactData);
+
+    this.setState({
+      name: '',
+      number: '',
+    });
   };
 
   handleInputChange = evt => {
@@ -50,6 +57,7 @@ export class Form extends Component {
             onChange={this.handleInputChange}
             type="tel"
             name="number"
+            value={this.state.number}
             required
           />
           <br />
