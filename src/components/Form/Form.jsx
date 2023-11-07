@@ -20,8 +20,6 @@ export class Form extends Component {
       id: id,
     };
 
-    // this.props.inClud(contact);
-
     this.props.conactList(contactData);
 
     this.setState({
@@ -33,7 +31,7 @@ export class Form extends Component {
   handleInputChange = evt => {
     const name = evt.target.name;
     const value = evt.target.value;
-    console.log(evt.target.name);
+
     this.setState({
       [name]: value,
     });
