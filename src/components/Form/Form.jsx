@@ -9,15 +9,11 @@ export class Form extends Component {
 
   hendleSubmit = evt => {
     evt.preventDefault();
-    const contact = this.state.name;
-    const number = this.state.number;
-
-    const id = nanoid();
 
     const contactData = {
-      name: contact,
-      number: number,
-      id: id,
+      name: this.state.name,
+      number: this.state.number,
+      id: nanoid(),
     };
 
     this.props.conactList(contactData);
@@ -28,10 +24,7 @@ export class Form extends Component {
     });
   };
 
-  handleInputChange = evt => {
-    const name = evt.target.name;
-    const value = evt.target.value;
-
+  handleInputChange = ({ target: { name, value } }) => {
     this.setState({
       [name]: value,
     });

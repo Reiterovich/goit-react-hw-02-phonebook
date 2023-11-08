@@ -10,16 +10,23 @@ export class App extends Component {
   };
 
   conactList = contactData => {
-    const contactArray = this.state.contacts;
-
-    if (contactArray.some(elm => elm.name === contactData.name)) {
-      window.alert(`${contactData.name} is already in contacts!`);
+    const { contacts } = this.state;
+    if (
+      contacts.some(
+        elm =>
+          elm.name.toLowerCase() === contactData.name.toLowerCase() ||
+          elm.number === contactData.number
+      )
+    ) {
+      window.alert(
+        `${contactData.name} or ${contactData.number} is already in contacts!`
+      );
       return;
     }
 
     this.setState(prevState => {
       return {
-        contacts: [...contactArray, contactData],
+        contacts: [...prevState.contacts, contactData],
       };
     });
   };
@@ -35,10 +42,9 @@ export class App extends Component {
   };
 
   filterApp = () => {
-    const arrey = this.state.contacts.filter(fil =>
+    return this.state.contacts.filter(fil =>
       fil.name.toLowerCase().includes(this.state.filter.toLowerCase())
     );
-    return arrey;
   };
 
   render() {
@@ -47,7 +53,7 @@ export class App extends Component {
         <h1>Phonebook</h1>
         <Form conactList={this.conactList} />
         <Filter filter={this.state.filter} filterName={this.filterName} />
-        <ContactList delete={this.delete} data={this.filterApp} />
+        <ContactList onDelete={this.delete} data={this.filterApp()} />
       </>
     );
   }
